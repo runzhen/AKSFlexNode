@@ -131,7 +131,7 @@ EOF
 ### 4. Verify Configuration
 ```bash
 # Test the configuration file syntax
-aks-flex-node version --config /etc/aks-flex-node/config.json
+aks-flex-node version
 
 ```
 
@@ -225,12 +225,6 @@ The project includes a Makefile with essential build targets:
 ```bash
 # Build the application
 make build
-
-# Run all tests
-make test
-
-# Clean build artifacts
-make clean
 
 # Show build metadata (date and git commit)
 make update-build-metadata
