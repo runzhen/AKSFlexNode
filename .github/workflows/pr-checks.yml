@@ -117,6 +117,9 @@ jobs:
         run: |
           go install github.com/securego/gosec/v2/cmd/gosec@latest
           gosec -fmt=sarif -out=results.sarif -no-fail ./...
+          # Remove invalid fixes from SARIF to prevent upload errors
+          jq 'del(.runs[].results[].fixes)' results.sarif > results-clean.sarif
+          mv results-clean.sarif results.sarif
         continue-on-error: true
 
       - name: Upload SARIF file
