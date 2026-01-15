@@ -140,6 +140,11 @@ func (c *Config) SetDefaults() {
 	if c.Runc.Version == "" {
 		c.Runc.Version = "1.1.12"
 	}
+
+	// Set default NPD configuration if not provided
+	if c.Npd.Version == "" {
+		c.Npd.Version = "v1.35.1"
+	}
 }
 
 // AKSClusterResourceIDPattern is AKS cluster resource ID regex pattern with capture groups
